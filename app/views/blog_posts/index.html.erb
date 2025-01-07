@@ -1,8 +1,13 @@
-<h1>Onni's Blog</h1>
+<h1 class="text-4xl text-center font-bold mb-8">Laura's Little Blog</h1>
 
-<% @blog_posts.each do |blog_post| %>
-<div>
-  <h2><%= link_to blog_post.title, blog_post_path(blog_post) %></h2>
-  <%= blog_post.body %>
+<div class="space-y-6">
+  <% @blog_posts.each do |blog_post| %>
+  <div class="bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold mb-2">
+      <%= link_to blog_post.title, blog_post_path(blog_post), class: "text-orange-600 hover:underline" %>
+    </h2>
+    <p class="text-gray-500"><%= blog_post.body %></p>
+    <p class="text-gray-400 text-sm"><%= blog_post.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+  <% end %>
 </div>
-<% end %>
